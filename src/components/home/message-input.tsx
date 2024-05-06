@@ -15,7 +15,7 @@ const MessageInput = () => {
     const me = useQuery(api.users.getMe);
     const {selectedConversation} = useConversationStore();
     
-    const{ref, isComponentVisible, setIsComponentVisible} = useComponentVisible();
+    const{ref, isComponentVisible, setIsComponentVisible} = useComponentVisible(false);
 
     const handleSendTextMsg = async (e:React.FormEvent) =>{
         e.preventDefault();
