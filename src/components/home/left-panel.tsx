@@ -9,6 +9,7 @@ import { useConvexAuth } from "convex/react";
 import { useQuery } from "convex/react";
 import { api } from "../../../convex/_generated/api";
 import { useEffect } from "react";
+import { useConversationStore } from "@/store/chat-store";
 
 const LeftPanel = () => {
     const {isAuthenticated, isLoading} = useConvexAuth();
@@ -24,7 +25,7 @@ const LeftPanel = () => {
 	}, [conversations, selectedConversation, setSelectedConversation]);
     
     if(isLoading)return null;
-    
+
 	return (
 		<div className='w-1/4 border-gray-600 border-r'>
 			<div className='sticky top-0 bg-left-panel z-10'>

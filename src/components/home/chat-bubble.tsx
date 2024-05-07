@@ -6,7 +6,6 @@ import Image from "next/image";
 import { useState } from "react";
 import { Dialog, DialogContent, DialogDescription } from "../ui/dialog";
 import ReactPlayer from "react-player";
-// import ChatAvatarActions from "./chat-avatar-actions";
 import { Bot } from "lucide-react";
 import ChatAvatarActions from "./chat-avatar-action";
 
@@ -29,7 +28,7 @@ const ChatBubble = ({ me, message, previousMessage }: ChatBubbleProps) => {
 	const fromAI = message.sender?.name === "ChatGPT";
 	const bgClass = fromMe ? "bg-green-chat" : !fromAI ? "bg-white dark:bg-gray-primary" : "bg-blue-500 text-white";
 
-	console.log(message.sender);
+	// console.log(message.sender);
 	const [open, setOpen] = useState(false);
 
 	const renderMessageContent = () => {

@@ -2,7 +2,8 @@
 const nextConfig = {
     images:{
         remotePatterns:[
-            {hostname:"dependable-ferret-649.convex.cloud"}
+            {hostname:"dependable-ferret-649.convex.cloud"},
+            { hostname: "oaidalleapiprodscus.blob.core.windows.net" },
         ]
     }
 };
