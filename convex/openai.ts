@@ -13,23 +13,23 @@ export const chat = action({
 	},
 	handler: async (ctx, args) => {
 		console.log("entered chat");
-		const res = await openai.chat.completions.create({
-			model: "gpt-3.5-turbo", // "gpt-4" also works, but is so slow!
-			messages: [
-				{
-					role: "system",
-					content: "You are a terse bot in a group chat responding to questions with 1-sentence answers",
-				},
-				{
-					role: "user",
-					content: args.messageBody,
-				},
-			],
-		});
+		// const res = await openai.chat.completions.create({
+		// 	model: "gpt-3.5-turbo", // "gpt-4" also works, but is so slow!
+		// 	messages: [
+		// 		{
+		// 			role: "system",
+		// 			content: "You are a terse bot in a group chat responding to questions with 1-sentence answers",
+		// 		},
+		// 		{
+		// 			role: "user",
+		// 			content: args.messageBody,
+		// 		},
+		// 	],
+		// });
         
-		console.log("res:",res);
-		const messageContent = res.choices[0].message.content;
-
+		// console.log("res:",res);
+		// const messageContent = res.choices[0].message.content;
+           const messageContent = "Access to this feature requires a subscription to GPT. Please subscribe to unlock this functionality and enjoy the full capabilities of our service."
 		await ctx.runMutation(api.messages.sendChatGPTMessage, {
 			content: messageContent ?? "I'm sorry, I don't have a response for that",
 			conversation: args.conversation,
@@ -44,14 +44,15 @@ export const dall_e = action({
 		messageBody: v.string(),
 	},
 	handler: async (ctx, args) => {
-		const res = await openai.images.generate({
-			model: "dall-e-3",
-			prompt: args.messageBody,
-			n: 1,
-			size: "1024x1024",
-		});
+		// const res = await openai.images.generate({
+		// 	model: "dall-e-3",
+		// 	prompt: args.messageBody,
+		// 	n: 1,
+		// 	size: "1024x1024",
+		// });
 
-		const imageUrl = res.data[0].url;
+		// const imageUrl = res.data[0].url;
+		const imageUrl = "/poopenai.png"
 		await ctx.runMutation(api.messages.sendChatGPTMessage, {
 			content: imageUrl ?? "/poopenai.png",
 			conversation: args.conversation,
